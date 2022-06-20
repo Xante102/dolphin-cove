@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
+  <body>
+      <style>
+          .bg{
+              background: url("https://www.dolphincoveja.com/Content/src/program-txt.png");
+          }
+      </style>
+    <!-- Navbar -->
+
+    <nav class="bg-white shadow flex space-x-12 items-center px-12 py-4 ">
+      <div>
+        <img src="https://www.dolphincoveja.com/Content/src/logo.png" alt="" />
+      </div>
+      <div
+        class="flex items-center mx-auto text-gray-600  capitalize"
+      >
+      
+        <a
+          href="#"
+          class="font-semibold border-b border-b-4 border-b-transparent hover:text-[#24326a] hover:border-[#24326a] transition-colors duration-200 transform mx-1.5 sm:mx-6"
+          >Parks</a
+        >
+
+        <a
+          href="#"
+          class="font-semibold border-b border-b-4 border-b-transparent hover:text-[#24326a] hover:border-[#24326a] transition-colors duration-200 transform mx-1.5 sm:mx-6"
+          >Information</a
+        >
+
+        <a
+          href="#"
+          class="font-semibold border-b border-b-4 border-b-transparent hover:text-[#24326a] hover:border-[#24326a] transition-colors duration-200 transform mx-1.5 sm:mx-6"
+          >News</a
+        >
+
+        <a
+          href="#"
+          class="font-semibold border-b border-b-4 border-b-transparent hover:text-[#24326a] hover:border-[#24326a] transition-colors duration-200 transform mx-1.5 sm:mx-6"
+          >Deals</a
+        >
+
+        <a
+          href="#"
+          class="font-semibold border-b border-b-4 border-b-transparent hover:text-[#24326a] hover:border-[#24326a] transition-colors duration-200 transform mx-1.5 sm:mx-6"
+        >
+          Contact Us
+        </a>
+
+        <a
+          href="#"
+          class="font-semibold border-b border-b-4 border-b-transparent hover:text-[#24326a] hover:border-[#24326a] transition-colors duration-300 transform mx-1.5 sm:mx-6"
+        >
+          Investor Relations
+        </a>
+
+         <a
+            class="relative text-[#24326a]"
+            href="#"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="shopping-cart"
+              class="w-5"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"
+              ></path>
+            </svg>
+            <span
+              class="text-white bg-gray-400 absolute rounded-full text-xs -mt-6 ml-2 py-0 px-1.5"
+              >0</span
+            >
+          </a>
+      </div>
+
+      <div>
+        <div class="flex space-x-4">
+          <div class="flex justify-center">
+            <div>
+              <div>
+                <button
+                  class="dropdown-toggle px-6 py-2.5 bg-[#24326a] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  transition duration-150 ease-in-out flex space-x-4 items-center whitespace-nowrap"
+                  type="button"
+=                >
+
+                <div class="flex space-x-3 items-center">
+                  <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 12C22 10.6868 21.7413 9.38647 21.2388 8.1731C20.7362 6.95996 19.9997 5.85742 19.0711 4.92896C18.1425 4.00024 17.0401 3.26367 15.8268 2.76123C14.6136 2.25854 13.3132 2 12 2V4C13.0506 4 14.0909 4.20703 15.0615 4.60889C16.0321 5.01099 16.914 5.60034 17.6569 6.34326C18.3997 7.08594 18.989 7.96802 19.391 8.93848C19.7931 9.90918 20 10.9495 20 12H22Z" fill="currentColor" /><path d="M2 10V5C2 4.44775 2.44772 4 3 4H8C8.55228 4 9 4.44775 9 5V9C9 9.55225 8.55228 10 8 10H6C6 14.4182 9.58173 18 14 18V16C14 15.4478 14.4477 15 15 15H19C19.5523 15 20 15.4478 20 16V21C20 21.5522 19.5523 22 19 22H14C7.37259 22 2 16.6274 2 10Z" fill="currentColor" /><path d="M17.5433 9.70386C17.8448 10.4319 18 11.2122 18 12H16.2C16.2 11.4485 16.0914 10.9023 15.8803 10.3928C15.6692 9.88306 15.3599 9.42017 14.9698 9.03027C14.5798 8.64014 14.1169 8.33081 13.6073 8.11963C13.0977 7.90869 12.5515 7.80005 12 7.80005V6C12.7879 6 13.5681 6.15527 14.2961 6.45679C15.024 6.7583 15.6855 7.2002 16.2426 7.75732C16.7998 8.31445 17.2418 8.97583 17.5433 9.70386Z" fill="currentColor" /></svg></div>
+                  <div class="text-lg font-semibold">                  1-866-393-5158
+                  </div>
+                  <div><img src="https://www.dolphincoveja.com/Content/src/usSites.png" alt=""></div>
+                </div>
+
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="caret-down"
+                    class="w-2 ml-2"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                    ></path>
+                  </svg>
+                </button>
+
+              </div>
+            </div>
+          </div>
+
+          <div>
+            </div>
+            <a href="/auth/login"
+              class="
+              border border-2 border-[#24326a]
+              font-semibold
+              py-2
+              px-6
+              text-gray-600
+              inline-block
+              duration-500
+              ease-in-out
+              rounded
+              hover:bg-[#24326a] hover:text-white
+              "
+              >
+           Login
+           </a>
+          </div>
+
+         
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="bg-[#095f65] flex justify-center items-center py-2 space-x-2">
+      <div>
+        <img
+          class="h-5"
+          src="https://www.dolphincoveja.com/Content/images/Trust_Care.svg"
+          alt=""
+        />
+      </div>
+      <div class="text-white text-sm font-medium">
+        Dolphin Cares: Integral Hygiene and safety protocols. Read more!
+      </div>
+    </div>
+    <div>
+      <img
+        src="https://www.dtraveller.com/promotions/imagesDD/dolphincoveja-banner.jpg?v=1"
+        alt=""
+      />
+    </div>
+    <div class="bg-[#24326a] h-[7.5rem] text-center">
+      <h1 class="py-3 text-white text-5xl font-bold">
+        Welcome to Dolphin Cove Jamaica
+      </h1>
+      <p class="pb-3 text-white text-lg">
+        Part of the Dolphin Discovery Group, the largest dolphin company in the
+        world
+      </p>
+    </div>
+    <!-- Main Content -->
+    <div class="mt-10">
+      <div class="prose text-center text-xl px-24 text-gray-500">
+        <p class="pb-5 pt-4">
+          Did you know that
+          <span class="text-gray-700 font-semibold"
+            >swimming with dolphins</span
+          >
+          is considered one of the
+          <span class="text-gray-700 font-semibold">top 10 bucket list</span>
+          items? When you come to
+          <span class="text-gray-700 font-semibold">Dolphin Cove Jamaica</span>
+          you not only get a chance to live this dream; you have the opportunity
+          to knock off a few more, like ride a camel and interact with
+          stingrays. Here a place where you come for the day but remember for a
+          lifetime.
+        </p>
+        <p class="pb-5">
+          One of the many things that make
+          <span class="text-gray-700 font-semibold">Dolphin Cove Jamaica</span>
+          special is that you can live the experience of
+          <span class="text-gray-700 font-semibold"
+            >swimming with dolphins</span
+          >
+          in the natural Caribbean Sea. Here you have the opportunity to enjoy
+          the company of different fish, rays, and other forms of natural sea
+          life.
+          <span class="text-gray-700 font-semibold">Dolphin Cove Jamaica</span>
+          is the place to spend the day enjoying lots of fun activities. There
+          is truly something for everyone!
+        </p>
+        <p class="pb-24">
+          <span class="text-gray-700 font-semibold">Dolphin Cove Jamaica</span>
+          is full of
+          <span class="text-gray-700 font-semibold"
+            >natural wonders and beauty</span
+          >
+          you gotta see for yourself! In
+          <span class="text-gray-700 font-semibold"
+            >Dolphin Cove Ocho Rios</span
+          >
+          you’ll enjoy strolling around in the Jungle Trail, where you will
+          notice many different wild animals, plants, and trees. At
+          <span class="text-gray-700 font-semibold">Dolphin Cove Jamaica</span>
+          we respect the environment of all the species, here you will live the
+          most natural experience you’ve ever had.
+        </p>
+      </div>
+
+      <div>
+
+        <div class="px-24">
+            <h1 class="text-[#24326a] font-bold text-5xl text-center border-b border-b-4 border-yellow-400">
+                DISCOVER OUR SWIM WITH DOLPHINS PROGRAMS
+              </h1>
+        </div>
+        
+
+
+        <section
+        class="bg-white"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-duration="1000"
+      >
+        <div class="max-w-4xl px-6 py-16 mx-auto">
+          <div class="items-center md:flex md:space-x-16">
+            <div class="md:w-1/2">
+              <div class="flex items-center justify-center">
+                <div
+                  class="relative h-64 sm:h-80 lg:h-full rounded-md"
+                >
+                  <img
+                    class="rounded-md object-contain w-96 h-full"
+                    src="https://www.dolphincoveja.com/Content/src/program-1.jpg"
+                    alt="Evelynn"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 md:mt-0 md:w-1/2">
+              <h2
+                style="font-family: 'Six Caps'; font-size: 40px"
+                class="font-bold sm:text-3xl text-[#39a4ac] rounded"
+              >
+              A DAY OF FUN
+              </h2>
+
+              <p style="font-family: 'Prata'" class="mt-4 text-gray-600">
+                They will give you a kiss and allow you to caress them while standing in knee deep water. This adventure is best for those who are not comfortable swimming in the sea and the very young.
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <section
+          class="bg-white"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-duration="1000"
+        >
+          <div class="max-w-4xl px-6 py-16 mx-auto">
+            <div class="items-center md:flex md:space-x-16">
+              <div class="md:w-1/2">
+                <div class="mt-8 md:mt-0 md:w-full">
+                  <h2
+                    style="font-family: 'Six Caps'; font-size: 40px"
+                    class="font-bold sm:text-3xl text-[#39a4ac] rounded"
+                  >
+                  SWIM WITH THE DOLPHINS
+                  </h2>
+                </div>
+
+                <p style="font-family: 'Prata'" class="mt-4 text-gray-600">
+                    At Dolphin Cove, interact with one dolphin while swimming in the deep. Enjoy a kiss, try a dance, perhaps you will get a splash or two and have a real up close experience.
+                </p>
+
+              </div>
+
+              <div class="mt-8 md:mt-0 md:w-1/2">
+                <div class="flex items-center justify-center">
+                  <div class="relative h-64 sm:h-80 lg:h-full rounded-md">
+                    <img
+                      class="rounded-md object-contain w-96 h-full"
+                      src="https://www.dolphincoveja.com/Content/src/program-2.jpg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="bg-white"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-duration="1000"
+        >
+          <div class="max-w-4xl px-6 py-16 mx-auto">
+            <div class="items-center md:flex md:space-x-16">
+              <div class="md:w-1/2">
+                <div class="flex items-center justify-center">
+                  <div
+                    class="relative h-64 sm:h-80 lg:h-full rounded-md"
+                  >
+                    <img
+                      class="rounded-md object-contain w-96 h-full"
+                      src="https://www.dolphincoveja.com/Content/src/program-3.jpg"
+                      alt="Evelynn"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8 md:mt-0 md:w-1/2">
+                <h2
+                  style="font-family: 'Six Caps'; font-size: 40px"
+                  class="font-bold sm:text-3xl text-[#39a4ac] rounded"
+                >
+                FUN TO THE LIMIT!                </h2>
+
+                <p style="font-family: 'Prata'" class="mt-4 text-gray-600">
+                    The most fun and unique program, designed to exceed all your expectations.Feel the thrill of foot-push; The dolphins will rise you above the water surface by pushing you from the soles of your feet.
+                </p>
+             
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="flex justify-center my-20">
+                  <img class="shadow-lg"
+            src="https://www.dolphincoveja.com/Content/src/cards.png"
+            alt=""
+          />
+      </div>
+      <div class="bg-[#efeeee]">
+          LIST
+      </div>
+
+      <div class="px-[35rem]">
+        <h1 class="text-[#24326a] font-bold text-5xl text-center border-b border-b-4 border-yellow-400">
+          OUR PARKS
+        </h1>  
+      </div>
+     
+      <div class="flex">
+        <div class="flex flex-col relative">
+          <img class=""
+            src="https://www.dolphincoveja.com/Content/media/Dolphin-Cove-Montego-Bay.jpg"
+            alt=""
+          />
+          <img class="absolute bottom-0" src="https://www.dolphincoveja.com/Content/src/program-txt.png" alt="">
+
+        </div>
+        <div class="flex flex-col relative">
+          <img class=""
+            src="https://www.dolphincoveja.com/Content/media/dolphin-cove-ocho-rios.jpg"
+            alt=""
+          />
+          <img class="absolute bottom-0" src="https://www.dolphincoveja.com/Content/src/program-txt.png" alt="">
+
+        </div>
+
+        <div class="flex flex-col relative">
+            <img class="" 
+              src="https://www.dolphincoveja.com/Content/media/Moon-Palace-Jamaica-Grande.jpg"
+              alt=""
+            />
+            <img class="absolute bottom-0" src="https://www.dolphincoveja.com/Content/src/program-txt.png" alt="">
+
+          </div>
+
+          <div class="flex flex-col relative">
+            <img class=""
+              src="https://www.dolphincoveja.com/Content/src/programs/ps/dolphincove-imagenlocacion.jpg"
+              alt=""
+            />
+
+            <img class="absolute bottom-0" src="https://www.dolphincoveja.com/Content/src/program-txt.png" alt="">
+          </div>
+      </div>
+
+      <div>
+          <h3>
+            Take a look at our parks and discover all of our programs in Dolphin Cove Jamaica!
+          </h3>
+
+          <div class="prose text-center text-xl px-24 text-gray-500">
+            <p class="pb-5 pt-4">
+
+                At <span class="text-gray-700 font-semibold">Dolphin Cove Ocho Rios</span> guests can enjoy the tropical surroundings, taste our famous Jamaican coffee at our <span class="text-gray-700 font-semibold">Star Buccaneers coffee shop</span> browse for souvenirs or jewellery at our very own gift shops. See the Shark Show while the pirates roam freely along the boardwalk of “Little Port Royal” and perform a “jig or two”. Be entertained while you are having lunch against the backdrop of the Caribbean Sea. Play some games, win a prize, learn amazing facts about Jamaica stroll around in our Jungle Trail and marvel yourself at the wild animals, plants and trees. and of course the marine mammals!. At <span class="text-gray-700 font-semibold">Dolphin Cove Jamaica</span> there are activities to keep you busy for the entire day.
+             
+            </p>
+            <p class="pb-5">
+                You may know it as Dolphin Cove Negril, but the now <span class="text-gray-700 font-semibold">Dolphin Cove Montego Bay</span> is a magnificent property situated on 23 acres of ocean frontage <span class="text-gray-700 font-semibold">(Sandy Bay, 40 min away from Montego Bay and 50 min from Negril)</span>, where you will have the opportunity to interact and swim with dolphins, enjoying the love of these amazing lovable marine mammals. Here you will also feel the thrill of swimming with sharks and stingrays!
+
+            </p>
+            <p class="pb-24">
+                The  <span class="text-gray-700 font-semibold">Dolphin Cove Jamaica Entrance</span> Fee is included with all dolphin and shark interactive programs. Whether you are achieving your dream of being a dolphin trainer at Dolphin Ocho Rios Jamaica or swimming with dolphins at Dolphin Cove Montego Bay you will have the Experience of a Lifetime!
+            </p>
+          </div>
+      </div>
+
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d825928.6855376288!2d-77.3429469167088!3d18.13764779238785!3m2!1i1024!2i768!4f13.1!2m1!1sDolphin%20Cove!5e0!3m2!1sen!2sjm!4v1655097656546!5m2!1sen!2sjm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      <div class="px-48">
+        <h1 class="text-[#24326a] font-bold text-5xl text-center border-b border-b-4 border-yellow-400">
+          THE CARIBBEAN'S NUMBER 1 ATTRACTION
+        </h1>
+      </div>
+  
+      <p>Dolphin Cove Jamaica has been named the Caribbean's Leading Adventure Excursions Operator for two consecutive years by the World Travel Awards. These awards are the foundation to Dolphin Cove Jamaica's position as a world leader in adventure excursions.</p>
+
+      <div class="flex">
+          <img src="https://www.dolphincoveja.com/Content/media/world-travel-2012.png" alt="">
+          <img src="https://www.dolphincoveja.com/Content/media/world-travel-2011.png" alt="">
+          <img src="https://www.dolphincoveja.com/Content/media/world-travel-2013.png" alt="">
+      </div>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+
+    <footer class="bg-[#39a4ac]">
+        <div class="container px-6 py-4 mx-auto">
+            <div class="lg:flex space-x-96">
+                <div class="w-full -mx-6 lg:w-2/5">
+                    <div class="px-6">
+                        <div class="grid grid-cols space-y-4">
+                            <a href="#" class=" text-white hover:text-gray-700">Information</a>
+                            <a href="#" class=" text-white hover:text-gray-700">News</a>
+                            <a href="#" class=" text-white hover:text-gray-700">About Us</a>
+                            <a href="#" class=" text-white hover:text-gray-700">Investor Relations</a>
+                            <a href="#" class=" text-white hover:text-gray-700">Privacy Policy</a>
+                            <a href="#" class=" text-white hover:text-gray-700">Terms and conditions</a>
+
+                        </div>
+                        
+                        
+                        <div class="flex space-x-4 mt-4 -mx-1">
+                            <button id="facebook" class="bg-white  sticky duration-500 border-2 border-blue-600 fixed  w-10 transform hover:-translate-y-3 h-10 text-2xl rounded-full hover:bg-blue-600 hover:text-white text-blue-600 ">
+                                <svg class="m-auto" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.19795 21.5H13.198V13.4901H16.8021L17.198 9.50977H13.198V7.5C13.198 6.94772 13.6457 6.5 14.198 6.5H17.198V2.5H14.198C11.4365 2.5 9.19795 4.73858 9.19795 7.5V9.50977H7.19795L6.80206 13.4901H9.19795V21.5Z" fill="currentColor" /></svg>                            </button>
+                          
+                          
+                                <button id="twitter" class="bg-white  transform hover:-translate-y-3  border-2 w-10 h-10 rounded-full duration-500 text-blue-400 border-blue-400 hover:bg-blue-400 hover:text-white text-2xl">
+                                    <svg class="m-auto w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" /></svg>
+                                </button>
+
+
+                             <button id="instagram" class=" border-2 hover:border-0 border-pink-500 bg-gradient-to-b text-2xl hover:from-indigo-600 hover:via-pink-600 hover:to-yellow-500 min-w-wull hover:text-white bg-white text-pink-600 w-10 h-10  transform hover:-translate-y-3 rounded-full duration-500 ">
+                                <svg class="m-auto"  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12Z" fill="currentColor" /><path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="currentColor" /><path fill-rule="evenodd" clip-rule="evenodd" d="M5 1C2.79086 1 1 2.79086 1 5V19C1 21.2091 2.79086 23 5 23H19C21.2091 23 23 21.2091 23 19V5C23 2.79086 21.2091 1 19 1H5ZM19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" fill="currentColor" /></svg>  </button>
+
+
+  <button id="youtube" class="bg-white transform hover:-translate-y-3  border-2 w-10 h-10 rounded-full duration-500 text-red-500 border-red-500 hover:bg-red-500 hover:text-white text-2xl">
+    <svg class="m-auto" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 7H19C19.5523 7 20 7.44771 20 8V16C20 16.5523 19.5523 17 19 17H5C4.44772 17 4 16.5523 4 16V8C4 7.44772 4.44772 7 5 7ZM2 8C2 6.34315 3.34315 5 5 5H19C20.6569 5 22 6.34315 22 8V16C22 17.6569 20.6569 19 19 19H5C3.34315 19 2 17.6569 2 16V8ZM10 9L14 12L10 15V9Z" fill="currentColor" /></svg>  </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 lg:mt-0 lg:flex-1">
+                    <div class="grid grid-cols-2 gap-6">
+
+                        <div class="w-96">
+                            <h3 class="text-white uppercase">Contact US</h3>
+                            <span class="block mt-2 text-sm text-white font-bold text-2xl mb-4">1-877-344-3385</span>
+                            <span class="block text-white text-sm"><span class=" mt-2 font-bold text-base">Canada</span> 1-866-793-1905</span>
+                            <span class="block text-white text-sm"><span class=" mt-2 font-bold text-base">United Kingdom</span> 0-800-680-0420</span>
+                            <span class="block text-white text-sm"><span class=" mt-2 font-bold text-base">Mexico</span> 01-800-727-5391</span>
+                            <span class="block text-white text-sm"><span class=" mt-2 font-bold text-base">Dominican Republic</span> 1-888-751-9005</span>
+                            <span class="block text-white text-sm mb-2"><span class=" mt-2 font-bold text-base">United States</span> 1-866-393-5158</span>
+                            <a href="#" class="block mt-2 text-white underline">Contact Us</a>
+                            <span class="block text-white uppercase">Partners:</span>
+                            <div class="flex space-x-4">
+                                <div>
+                                    <img src="https://www.dolphincoveja.com/Content/src/dd-logo.png" alt="">
+                                </div>
+                                <div>
+                                    <img src="https://www.dolphincoveja.com/Content/src/dc-logo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="h-px my-6 bg-gray-300 border-none">
+
+            <div>
+                <p class="text-center text-white text-2xl">www.dolphincoveja.com</p>
+            </div>
+        </div>
+    </footer>
+
+  <!-- <Footer> -->
+  </body>
+</html>

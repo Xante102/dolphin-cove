@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= page_title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <!-- component -->
+<style>
+
+
+    /* Custom style */
+    .header-right {
+        width: calc(100% - 3.5rem);
+    }
+    .sidebar:hover {
+        width: 16rem;
+    }
+    @media only screen and (min-width: 768px) {
+        .header-right {
+            width: calc(100% - 16rem);
+        }        
+    }
+  </style>
+  <div x-data="setup()">
+      <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white text-black">
+  
+        <!-- Header -->
+        <%- include('../partials/navbar'); %>
+        <!-- ./Header -->
+      
+        <!-- Sidebar -->
+        <%- include('../partials/sidebar'); %>
+        <!-- ./Sidebar -->
+      
+        <div class="h-full px-12 py-6 mt-14 mb-10 md:ml-64">
+      
+          <!-- Statistics Cards -->
+<div>
+  
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+        <dt>
+          <div class="absolute bg-indigo-500 rounded-md p-3">
+            <!-- Heroicon name: outline/users -->
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <p class="ml-16 text-sm font-medium text-gray-500 truncate">Programs</p>
+        </dt>
+        <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+          <p class="text-2xl font-semibold text-gray-900">71,897</p>
+    
+          <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
+            <div class="text-sm">
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span class="sr-only"> Total Subscribers stats</span></a>
+            </div>
+          </div>
+        </dd>
+      </div>
+  
+      <div class="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+        <dt>
+          <div class="absolute bg-indigo-500 rounded-md p-3">
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+            </svg>
+          </div>
+          <p class="ml-16 text-sm font-medium text-gray-500 truncate">Bookings</p>
+        </dt>
+        <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+          <p class="text-2xl font-semibold text-gray-900">58.16%</p>
+          
+          <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
+            <div class="text-sm">
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span class="sr-only"> Avg. Open Rate stats</span></a>
+            </div>
+          </div>
+        </dd>
+      </div>
+  
+      <div class="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+        <dt>
+          <div class="absolute bg-indigo-500 rounded-md p-3">
+            <!-- Heroicon name: outline/cursor-click -->
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+            </svg>
+          </div>
+          <p class="ml-16 text-sm font-medium text-gray-500 truncate">Tour Companies</p>
+        </dt>
+        <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
+          <p class="text-2xl font-semibold text-gray-900">24.57%</p>
+         
+          <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
+            <div class="text-sm">
+              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span class="sr-only"> Avg. Click Rate stats</span></a>
+            </div>
+          </div>
+        </dd>
+      </div>
+    </dl>
+  </div>
+          <!-- ./Statistics Cards -->
+
+
+          
+      
+        </div>
+      </div>
+    </div>    
+  
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+    
+</body>
+</html>

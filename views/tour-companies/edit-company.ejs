@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= page_title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <!-- component -->
+<style>
+
+
+    /* Custom style */
+    .header-right {
+        width: calc(100% - 3.5rem);
+    }
+    .sidebar:hover {
+        width: 16rem;
+    }
+    @media only screen and (min-width: 768px) {
+        .header-right {
+            width: calc(100% - 16rem);
+        }        
+    }
+  </style>
+  <div x-data="setup()">
+      <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white text-black">
+  
+        <!-- Header -->
+        <%- include('../partials/navbar'); %>
+        <!-- ./Header -->
+      
+        <!-- Sidebar -->
+        <%- include('../partials/sidebar'); %>
+        <!-- ./Sidebar -->
+      
+        <div class="h-full px-12 py-6 mt-14 mb-10 md:ml-64">
+      
+          <!-- Edit Tour Company Form -->
+          <section class="w-full max-w-2xl px-6 py-4 mx-auto bg-white my-24 rounded-md shadow-md">
+        
+            <form class="mt-6 " method="POST" action="/tour-companies/update">
+                <div class="items-center -mx-2 md:flex">
+                    <div class="w-full mx-2">
+                        <label for="coName" class="block mb-2 text-sm font-medium text-gray-600">Tour Company</label>
+    
+                        <input name="coName" value="<%= data.co_name %>" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" type="text">
+                    </div>
+    
+                    <div class="w-full mx-2 mt-4 md:mt-0">
+                        <label for="pNum" class="block mb-2 text-sm font-medium text-gray-600">Phone Number</label>
+    
+                        <input name="pNum" value="<%= data.phone_num %>" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" type="number">
+                    </div>
+                </div>
+    
+                <div class="w-full mt-4">
+                    <label for="coAddress" class="block mb-2 text-sm font-medium text-gray-600">Address</label>
+    
+                    <textarea name="coAddress" class="resize-none block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"><%= data.co_addr %></textarea>
+                </div>
+
+                <div class="w-full mx-2 mt-4 md:mt-0">
+                    <label for="id" class="block mb-2 text-sm font-medium text-gray-600"></label>
+
+                    <input name="id" type="hidden" value="<%= data.id %>" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" type="email">
+                </div>
+    
+                <div class="flex justify-center mt-6">
+                    <button type="submit" class="px-4 py-2 text-white transition-colors duration-200 transform bg-[#39a4ac] rounded-md hover:bg-[#008B8B] focus:outline-none focus:bg-[#008B8B]">Save</button>
+                </div>
+            </form>
+        </section>
+          <!-- ./Edit Tour Company Form -->
+
+
+          
+      
+        </div>
+      </div>
+    </div>    
+  
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+    
+</body>
+</html>

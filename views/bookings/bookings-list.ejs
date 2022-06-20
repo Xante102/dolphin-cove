@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= page_title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- component -->
+    <style>
+      /* Custom style */
+      .header-right {
+        width: calc(100% - 3.5rem);
+      }
+      .sidebar:hover {
+        width: 16rem;
+      }
+      @media only screen and (min-width: 768px) {
+        .header-right {
+          width: calc(100% - 16rem);
+        }
+      }
+    </style>
+    <div x-data="setup()">
+      <div
+        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white text-black"
+      >
+        <!-- Header -->
+        <%- include('../partials/navbar'); %>
+        <!-- ./Header -->
+
+        <!-- Sidebar -->
+        <%- include('../partials/sidebar'); %>
+        <!-- ./Sidebar -->
+
+        <div class="h-full px-12 py-6 mt-14 mb-10 md:ml-64">
+          <!-- Bookings List -->
+
+          <a
+            href="/bookings/create"
+            class="border border-2 border-[#39a4ac] font-semibold py-2 px-6 text-gray-600 inline-block duration-500 ease-in-out rounded hover:bg-[#39a4ac] hover:text-white"
+          >
+            Add Booking
+          </a>
+
+          <section class="flex justify-center w-full mt-20 mb-16 gap-3">
+            <div class="container max-w-5xl">
+              <div class="grid grid-cols-2 gap-5">
+                <% if(data.length) { for (let i = 0; i < data.length; i++) { %>
+
+                <div
+                  class="group max-w-2xl cursor-pointer px-8 pb-2 mx-auto bg-white rounded-lg shadow-md hover:shadow-lg duration-300"
+                >
+                  <div
+                    class="text-2xl flex items-center h-20 justify-between gap-5 mb-2"
+                  >
+                    <span
+                      class="font-bold text-gray-600 duration-300 group-hover:text-blue-800"
+                      ><%= data[i].f_name %> <%= data[i].l_name %></span
+                    >
+                    <span class="font-light text-gray-600">
+                      <%= data[i].voucher_no %></span
+                    >
+                  </div>
+
+                  <div class="mb-4 flex justify-between space-x-10">
+                    <div>
+                      <span
+                        class="text-sm font-bold text-gray-600 duration-300 group-hover:text-blue-600"
+                        >From:</span
+                      >
+                      <span class="text-sm font-light text-gray-600">
+                        <%= data[i].hotel_name %></span
+                      >
+                    </div>
+
+                    <div>
+                      <span
+                        class="text-sm font-bold text-gray-600 duration-300 group-hover:text-blue-600"
+                        >Booked Through:</span
+                      >
+                      <span class="text-sm font-light text-gray-600">
+                        <%= data[i].co_name %></span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="mb-4 flex justify-between space-x-10">
+                    <div>
+                      <span
+                        class="text-sm font-bold text-gray-600 duration-300 group-hover:text-blue-600"
+                        >Price:</span
+                      >
+                      <span class="text-sm font-light text-gray-600">
+                        <span class="font-semibold text-sm text-gray-600"
+                          >$</span
+                        ><%= data[i].total_cost %></span
+                      >
+                    </div>
+
+                    <div>
+                      <span
+                        class="text-sm font-bold text-gray-600 duration-300 group-hover:text-blue-600"
+                        >Program:</span
+                      >
+                      <span class="text-sm font-light text-gray-600">
+                        <%= data[i].program_name %></span
+                      >
+                    </div>
+                  </div>
+                  <div class="mb-4 flex justify-between space-x-10">
+                    <div>
+                      <span
+                        class="text-sm font-bold text-gray-600 duration-300 group-hover:text-blue-600"
+                        >Date Booked:</span
+                      >
+                      <span class="text-sm font-light text-gray-600">
+                        <%= new Date(data[i].date_booked).toDateString('fr-CA')
+                        %></span
+                      >
+                    </div>
+
+                    <div>
+                      <span
+                        class="text-sm font-bold text-gray-600 duration-300 group-hover:text-blue-600"
+                        >Excursion Date:</span
+                      >
+
+                      <span class="text-sm font-light text-gray-600">
+                        <%= new
+                        Date(data[i].excursion_date).toDateString('fr-CA')
+                        %></span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="flex justify-end items-center ">
+                    <div class="flex justify-between py-3 w-20">
+                      <a
+                        href="/bookings/edit/<%= data[i].id %>"
+                        class="w-5 mr-2 transform hover:text-[#39a4ac] hover:scale-110"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class=""
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                          />
+                        </svg>
+                      </a>
+
+                      <a
+                        href="/bookings/delete/<%= data[i].id %>"
+                        class="w-5 mr-2 transform hover:text-[#39a4ac] hover:scale-110"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <% } } else { %>
+                <div class="px-4 py-3 font-semibold text-center">
+                  NO BOOKING AVAILABLE
+                </div>
+                <% } %>
+              </div>
+            </div>
+          </section>
+          <!-- ./Bookings List -->
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"
+      defer
+    ></script>
+  </body>
+</html>

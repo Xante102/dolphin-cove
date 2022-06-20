@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= page_title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <!-- component -->
+<style>
+
+
+    /* Custom style */
+    .header-right {
+        width: calc(100% - 3.5rem);
+    }
+    .sidebar:hover {
+        width: 16rem;
+    }
+    @media only screen and (min-width: 768px) {
+        .header-right {
+            width: calc(100% - 16rem);
+        }        
+    }
+  </style>
+  <div x-data="setup()">
+      <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white text-black">
+  
+        <!-- Header -->
+        <%- include('../partials/navbar'); %>
+        <!-- ./Header -->
+      
+        <!-- Sidebar -->
+        <%- include('../partials/sidebar'); %>
+        <!-- ./Sidebar -->
+      
+        <div class="h-full px-12 py-6 mt-14 mb-10 md:ml-64">
+      
+          <!-- Add Program Form -->
+          <section class="w-full max-w-2xl px-6 py-4 mx-auto bg-white my-24 rounded-md shadow-md">
+        
+            <form class="mt-6 " method="POST" action="/programs/add">
+
+                <div class="w-full mt-4">
+                    <label for="pName" class="block mb-2 text-sm font-medium text-gray-600">Program</label>
+    
+                    <input name="pName" value="<%= data.program_name %>" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">
+                </div>
+
+                <div class="w-full mt-4">
+                    <label for="pDescription" class="block mb-2 text-sm font-medium text-gray-600">Description</label>
+    
+                    <textarea name="pDescription" class="resize-none block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"><%= data.program_description %></textarea>
+                </div>
+
+                <div class="items-center -mx-2 md:flex mt-4">
+                    <div class="w-full mx-2">
+                        <label for="pCost" class="block mb-2 text-sm font-medium text-gray-600">Cost</label>
+    
+                        <input name="pCost" value="<%= data.program_cost %>" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" type="number">
+                    </div>
+    
+                    <div class="w-full mx-2 mt-4 md:mt-0">
+                        <label for="schedule" class="block mb-2 text-sm font-medium text-gray-600">Schedule</label>
+    
+                        <input name="schedule" value="<%= data.schedule %>" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" type="date">
+                    </div>
+                </div>
+    
+                <div class="w-full mx-2 mt-4 md:mt-0">
+                    <label for="id" class="block mb-2 text-sm font-medium text-gray-600"></label>
+
+                    <input name="id" type="hidden" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" type="email">
+                </div>
+    
+                <div class="flex justify-center mt-6">
+                    <button type="submit" class="px-4 py-2 text-white transition-colors duration-200 transform bg-[#39a4ac] rounded-md hover:bg-[#008B8B] focus:outline-none focus:bg-[#008B8B]">Save</button>
+                </div>
+            </form>
+        </section>
+          <!-- ./Add Program Form -->
+
+
+          
+      
+        </div>
+      </div>
+    </div>    
+  
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+    
+</body>
+</html>
