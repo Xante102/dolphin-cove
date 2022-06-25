@@ -3,50 +3,36 @@ const router = express.Router();
 const conn = require("../lib/db");
 
 // Get Route to display the Dashboard Screen
-  
+
 router.get("/dashboard", (req, res, next) => {
   // if (req.session.isLoggedIn == true) {
-    const query =     "SELECT bk.*, tc.*, pg.*" +
-    " FROM bookings bk, programs pg, tour_companies tc" ;
-    const query2 = `SELECT COUNT(bk.id) total_bookings,
-                        COUNT(tc.id) AS total_companies, 
-                        COUNT(pg.id) AS total_programs FROM bookings bk, programs pg, tour_companies tc`
-          
-          
-  
-    // conn.query(query, (err, rows) => {
-    //   if (err) throw err;
-  
-      conn.query(query, (err, rows, aggregateRows) => {
-        if (err) throw err;
-  
-         res.render('dashboard', { page_title: 'Dashboard', data: rows, aggregate: aggregateRows[0] });
-  });
-    });
-     
-  
+  const query = "SELECT COUNT(id) AS total_bookings FROM bookings"
+  // const query =     "SELECT bk.*, tc.*, pg.*" +
+  // " FROM bookings bk, programs pg, tour_companies tc" ;
+  // const query2 = `SELECT COUNT(bk.id) total_bookings,
+  //                       COUNT(tc.id) AS total_companies, 
+  //                       COUNT(pg.id) AS total_programs FROM bookings bk, programs pg, tour_companies tc`;
 
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  // conn.query(query, (err, rows) => {
+  // if (err) throw err;
+
+  conn.query(query, (err, rows, aggregateRows) => {
+    // if (err) throw err;
+
+    res.render("dashboard", {
+      page_title: "Dashboard",
+      data: rows,
+      aggregate: aggregateRows[0],
+    });
+  });
+});
+
+// } else {
+//   res.redirect("/auth/login");
+// }
 // });
 
-
-  
-
-
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
 
 // const express = require('express')
 // const router = express.Router()

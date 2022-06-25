@@ -18,7 +18,7 @@ const companiesRoute = require("./routes/tour-companies");
 const programsRoute = require("./routes/programs");
 const indexRoute = require("./routes/index");
 const bookingsRoute = require("./routes/bookings");
-// const teachersRoute = require("./routes/teachers");
+const customersRoute = require("./routes/customer-booking");
 const dashboardRoute = require("./routes/dashboard");
 // // --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ app.use("/tour-companies", companiesRoute);
 app.use("/programs", programsRoute);
 app.use("/bookings", bookingsRoute);
 app.use("/", dashboardRoute);
-// app.use("/students", studentsRoute);
+app.use("/", customersRoute);
 app.use("/", indexRoute);
 app.use("/auth", authRoute);
 // End Routing Middleware

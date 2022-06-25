@@ -5,7 +5,7 @@ const conn = require("../lib/db");
 // Get Route to display the Programs List Screen
 router.get("/list", (req, res, next) => {
   const sql = "SELECT * FROM programs";
-//   if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(sql, (err, rows) => {
       if (err) {
         //
@@ -16,20 +16,20 @@ router.get("/list", (req, res, next) => {
         });
       }
     });
-//   } else {
-//     res.redirect("/auth/login");
-//   }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Get Route to display the Create Program Screen
 router.get("/create", (req, res, next) => {
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     res.render("./programs/add-program", {
       page_title: "Create Tour Company",
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Add Program Route
@@ -42,22 +42,22 @@ router.post("/add", (req, res) => {
   };
 
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(`INSERT INTO programs SET ?`, sql, (err, results) => {
       if (err) throw err;
 
       res.redirect("/programs/list");
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Edit Program Route
 router.get("/edit/:id", (req, res, next) => {
   const sql = "SELECT * FROM programs WHERE id =" + req.params.id;
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(sql, (err, rows) => {
       if (err) {
         //
@@ -68,9 +68,9 @@ router.get("/edit/:id", (req, res, next) => {
         });
       }
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Update Program Route
@@ -87,7 +87,7 @@ router.post("/update", (req, res, next) => {
     "'WHERE id =" +
     req.body.id;
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(sql, (err, rows) => {
       if (err) {
         //
@@ -95,16 +95,16 @@ router.post("/update", (req, res, next) => {
         res.redirect("/programs/list");
       }
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Delete Program Route
 router.get("/delete/:id", (req, res, next) => {
   const sql = "DELETE FROM programs WHERE id=" + req.params.id;
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(sql, (err, rows) => {
       if (err) {
         //
@@ -112,9 +112,9 @@ router.get("/delete/:id", (req, res, next) => {
         res.redirect("/programs/list");
       }
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 module.exports = router;

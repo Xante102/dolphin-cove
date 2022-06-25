@@ -5,7 +5,7 @@ const conn = require("../lib/db");
 // Get Route to display the Tour Companies List Screen
 router.get("/list", (req, res, next) => {
   const sql = "SELECT * FROM tour_companies";
-//   if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(sql, (err, rows) => {
       if (err) {
         //
@@ -16,20 +16,20 @@ router.get("/list", (req, res, next) => {
         });
       }
     });
-//   } else {
-//     res.redirect("/auth/login");
-//   }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Get Route to display the Create Tour Company Screen
 router.get("/create", (req, res, next) => {
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     res.render("./tour-companies/add-company", {
       page_title: "Create Tour Company",
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Add Company Route
@@ -40,22 +40,22 @@ router.post("/add", (req, res) => {
     phone_num: req.body.pNum,
   };
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(`INSERT INTO tour_companies SET ?`, sql, (err, results) => {
       if (err) throw err;
 
       res.redirect("/tour-companies/list");
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Edit Company Route
 router.get("/edit/:id", (req, res, next) => {
   const sql = "SELECT * FROM tour_companies WHERE id =" + req.params.id;
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(sql, (err, rows) => {
       if (err) {
         //
@@ -66,9 +66,9 @@ router.get("/edit/:id", (req, res, next) => {
         });
       }
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Update Company Route
@@ -83,7 +83,7 @@ router.post("/update", (req, res, next) => {
     "'WHERE id =" +
     req.body.id;
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(sql, (err, rows) => {
       if (err) {
         //
@@ -91,16 +91,16 @@ router.post("/update", (req, res, next) => {
         res.redirect("/tour-companies/list");
       }
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Delete Company Route
 router.get("/delete/:id", (req, res, next) => {
   const sql = "DELETE FROM tour_companies WHERE id=" + req.params.id;
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
     conn.query(sql, (err, rows) => {
       if (err) {
         //
@@ -108,9 +108,9 @@ router.get("/delete/:id", (req, res, next) => {
         res.redirect("/tour-companies/list");
       }
     });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 module.exports = router;

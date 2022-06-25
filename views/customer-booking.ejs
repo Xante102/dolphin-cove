@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div>
+           <!-- Navbar -->
+           <%- include('./partials/home-nav'); %>
+           <!-- ./Navbar -->
+
+           <div class="w-full">
+            <img
+              src="https://www.dolphincoveja.com/Content/src/programs/or/yaaman-dolphincove-banner.jpg"
+              class="w-screen object-cover"
+              alt=""
+            />
+          </div>
+          <div class="flex space-x-16 mb-10">
+            <div class="w-2/3 py-6 pl-20">
+              <h5 class="text-[#39a4ac] text-2xl font-medium mb-5">
+                The Caribbean's number one attraction!
+              </h5>
+              <div class="prose text-lg text-gray-500">
+                <p class="mb-5">
+                  <span class="text-gray-700 font-semibold">
+                    Dolphin Cove Ocho Rios</span
+                  >
+                  Jamaica has a natural cove which is surrounded by
+                  <span class="text-gray-700 font-semibold">
+                    5 acres of lush tropical rainforest</span
+                  >. Visitors have the opportunity to interact and swim with jamaican
+                  dolphins in their natural environment while enjoying the thrill and
+                  love of these amazing marine mammals. Visitors can also swim, hold,
+                  feed, and learn about the evolutionary secrets of the Caribbean
+                  sharks.
+                </p>
+                <p class="mb-5">
+                  <span class="text-gray-700 font-semibold"
+                    >Dolphin Cove Ocho Ríos Jamaica</span
+                  >
+                  is full of natural wonders and beauty,
+                  <span class="text-gray-700 font-semibold"
+                    >you gotta see it for yourself!</span
+                  >. Enjoy Dolphin Cove in Ocho Rios, while strolling around in our
+                  <span class="text-gray-700 font-semibold">Jungle Trail</span>, you
+                  will notice many different wild animals, plants and trees. At
+                  Dolphin Cove Jamaica, we respect the environment of all the species,
+                  here you will live the most
+                  <span class="text-gray-700 font-semibold">natural experience</span>
+                  you’ve ever had. Jamaica Dolphin Cove is the place to spend the day
+                  enjoying lots of fun activities. There is something for everyone.
+                </p>
+                <p class="mb-5">
+                  Dolphin Cove Ocho Rios entrance cost includes full use of the
+                  following activities:
+                </p>
+                <p class="mb-2">Interact and snorkel with stingrays</p>
+                <p class="mb-2">
+                  Interact with exotic birds, snakes and iguanas on the Jungle Trail
+                  walk
+                </p>
+                <p class="mb-2">Relax on our glistening white sandy beaches</p>
+                <p class="mb-5">
+                  Guests can enjoy the tropical surroundings, taste our famous
+                  Jamaican coffee at our
+                  <span class="text-gray-700 font-semibold"
+                    >Star Buccaneers coffee shop</span
+                  >, browse for souvenirs or jewellery at our very own gift shops. Be
+                  entertained while you are having lunch against the backdrop of the
+                  <span class="text-gray-700 font-semibold">Caribbean Sea</span>. Play
+                  some games, win a prize, learn a little about Jamaica and Dolphins.
+                  <span
+                    >At Dolphin Cove Jamaica there are activities to keep you busy for
+                    the entire day</span
+                  >.
+                </p>
+      
+                <p class="text-gray-700 font-semibold mb-5">
+                  The Dolphin Cove Jamaica Entrance Fee is included with all dolphin
+                  and shark interactive programs.
+                </p>
+              </div>
+              <h5 class="text-[#39a4ac] text-2xl font-medium mb-5">
+                Once at Dolphin Cove Jamaica, you’ll have the Experience of a
+                Lifetime!
+              </h5>
+      
+              <div class="grid grid-cols-3 gap-5">
+                  <% if(data.length) { for (let i = 0; i < data.length; i++) { %>
+      
+                      <div class="mb-10">
+                          <img class="w-72 h-64 object-cover" src="https://www.dolphincoveja.com/Content/media/cove-ocho-rios/swim-adventure-dunns.jpg" alt="">
+                          <div class="text-gray-800"> 
+                              <p class="font-bold text-sm"><%= data[i].program_name %></p>
+                              <p class="font-medium text-xs"><%= data[i].program_description %></p>
+                              <p class="font-bold text-sm text-yellow-400">$<%= data[i].program_cost %></p>
+                          </div>
+                      </div>
+      
+      
+      
+                      <% } } else { %>
+                          <div class="px-4 py-3 font-semibold text-center">
+                            NO PROGRAMS AVAILABLE
+                          </div>
+                          <% } %>
+
+
+      
+              </div>
+              <iframe class="w-full" src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d825928.6855376288!2d-77.3429469167088!3d18.13764779238785!3m2!1i1024!2i768!4f13.1!2m1!1sDolphin%20Cove!5e0!3m2!1sen!2sjm!4v1655097656546!5m2!1sen!2sjm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ 
+      
+            </div>
+            <div class="w-1/3 mt-5">
+              <section
+                class="w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md"
+              >
+              <h1 class="bg-[#39a4ac] text-center text-white font-semibold p-3">Make Your Reservation</h1>
+                <form action="/bookings/add" method="POST" class="mt-6">
+                  <div class="items-center -mx-2 md:flex">
+                    <div class="w-full mx-2">
+                      <label class="block mb-2 text-sm font-medium text-gray-600"
+                        >First Name</label
+                      >
+      
+                      <input
+                        name="fName"
+                        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        type="text"
+                      />
+                    </div>
+      
+                    <div class="w-full mx-2 mt-4 md:mt-0">
+                      <label class="block mb-2 text-sm font-medium text-gray-600"
+                        >Last Name</label
+                      >
+      
+                      <input
+                        name="lName"
+                        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+      
+                  <div class="items-center -mx-2 md:flex mt-4">
+                    <div class="w-full mx-2">
+                      <label class="block mb-2 text-sm font-medium text-gray-600"
+                        >Program</label
+                      >
+      
+                      <select
+                        name="programID"
+                        id=""
+                        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                      >
+                      <option value="" selected disabled>Please Select</option>
+                        <option value="1">Dolphin Swim Adventure</option>
+                        <option value="2">Shark Encounter</option>
+                        <option value="3">Encounter</option>
+                        <option value="4">Admission Plus</option>
+                        <option value="5">Dolphin Royal Swim</option>
+                        <option value="6">
+                          Yaaman Adventure + Swim With Dolphins
+                        </option>
+                      </select>
+                    </div>
+      
+                    <div class="w-full mx-2 mt-4 md:mt-0">
+                      <label class="block mb-2 text-sm font-medium text-gray-600"
+                        >Excursion Date</label
+                      >
+      
+                      <input
+                        name="eDate"
+                        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        type="date"
+                      />
+                    </div>
+                  </div>
+      
+                  <div class="items-center -mx-2 md:flex mt-4">
+                    <div class="w-full mx-2">
+                      <label class="block mb-2 text-sm font-medium text-gray-600"
+                        >Total Guests</label
+                      >
+      
+                      <input
+                        name="tGuests"
+                        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        type="number"
+                      />
+                    </div>
+      
+                    <div class="w-full mx-2 mt-4 md:mt-0">
+                      <label class="block mb-2 text-sm font-medium text-gray-600"
+                        >Hotel</label
+                      >
+      
+                      <input
+                        name="hotelName"
+                        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+      
+                  <div class="items-center -mx-2 md:flex mt-4">
+                    <div class="w-full mx-2">
+                      <label class="block mb-2 text-sm font-medium text-gray-600"
+                        >Payment Method</label
+                      >
+                      <select
+                        name="pmID"
+                        id=""
+                        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                      > 
+                      <option value="" selected disabled>Please Select</option>
+                        <option value="1">Cash</option>
+                        <option value="2">Cheque</option>
+                        <option value="3">Debit Card</option>
+                        <option value="4">Credit Card</option>
+                      </select>
+                    </div>
+                  </div>
+      
+                  <div class="w-full mt-4">
+                    <label
+                      class="block mb-2 text-sm font-medium text-gray-600"
+                    ></label>
+      
+                    <input name="dateBooked" value="<%= new
+                    Date().toLocaleDateString("fr-CA") %>" class="block w-full px-4
+                    py-2 text-gray-700 bg-white border rounded-md
+                    focus:border-blue-400 focus:ring-blue-300 focus:outline-none
+                    focus:ring focus:ring-opacity-40" type="hidden">
+                  </div>
+      
+                  <div class="w-full mt-4">
+                    <label
+                      class="block mb-2 text-sm font-medium text-gray-600"
+                    ></label>
+      
+                    <input
+                      name="bookedThrough"
+                      value="7"
+                      class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                      type="hidden"
+                    />
+                  </div>
+      
+                  <div class="flex justify-center mt-6">
+                    <button
+                      class="px-4 py-2 text-white transition-colors duration-200 transform bg-[#39a4ac] rounded-md hover:bg-[#008B8B] focus:outline-none focus:bg-gray-600"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </form>
+              </section>
+            </div>
+          </div>
+
+
+        <!-- Footer -->
+        <%- include('./partials/footer'); %>
+        <!-- ./Footer -->
+    </div>
+   
+  </body>
+</html>

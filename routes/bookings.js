@@ -10,7 +10,7 @@ router.get("/list", (req, res, next) => {
     " WHERE bk.payment_method_id = pm.id" +
     " AND bk.program_id = pg.id" +
     " AND bk.booked_through = tc.id";
-  //   if (req.session.isLoggedIn == true) {
+    if (req.session.isLoggedIn == true) {
   conn.query(sql, (err, rows) => {
     if (err) {
       //
@@ -21,20 +21,20 @@ router.get("/list", (req, res, next) => {
       });
     }
   });
-  //   } else {
-  //     res.redirect("/auth/login");
-  //   }
+    } else {
+      res.redirect("/auth/login");
+    }
 });
 
 // Get Route to display the Create Booking Screen
 router.get("/create", (req, res, next) => {
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
   res.render("./bookings/add-booking", {
     page_title: "Create Booking",
   });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Add Booking Route
@@ -67,15 +67,15 @@ router.post("/add", (req, res) => {
         voucher_no: voucher,
       };
 
-      // if (req.session.isLoggedIn == true) {
+      if (req.session.isLoggedIn == true) {
       conn.query(`INSERT INTO bookings SET ?`, sql, (err, results) => {
         if (err) throw err;
 
         res.redirect("/bookings/list");
       });
-      // } else {
-      //   res.redirect("/auth/login");
-      // }
+      } else {
+        res.redirect("/auth/login");
+      }
     }
   );
 });
@@ -84,7 +84,7 @@ router.post("/add", (req, res) => {
 router.get("/edit/:id", (req, res, next) => {
   const sql = "SELECT * FROM bookings WHERE id =" + req.params.id;
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
   conn.query(sql, (err, rows) => {
     if (err) {
       //
@@ -95,9 +95,9 @@ router.get("/edit/:id", (req, res, next) => {
       });
     }
   });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Update Booking Route
@@ -116,7 +116,7 @@ router.post("/update", (req, res, next) => {
     "'WHERE id =" +
     req.body.id;
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
   conn.query(sql, (err, rows) => {
     if (err) {
       //
@@ -124,16 +124,16 @@ router.post("/update", (req, res, next) => {
       res.redirect("/bookings/list");
     }
   });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 // Delete Booking Route
 router.get("/delete/:id", (req, res, next) => {
   const sql = "DELETE FROM bookings WHERE id=" + req.params.id;
 
-  // if (req.session.isLoggedIn == true) {
+  if (req.session.isLoggedIn == true) {
   conn.query(sql, (err, rows) => {
     if (err) {
       //
@@ -141,9 +141,9 @@ router.get("/delete/:id", (req, res, next) => {
       res.redirect("/bookings/list");
     }
   });
-  // } else {
-  //   res.redirect("/auth/login");
-  // }
+  } else {
+    res.redirect("/auth/login");
+  }
 });
 
 module.exports = router;
