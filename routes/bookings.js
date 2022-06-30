@@ -107,14 +107,25 @@ router.post("/update", (req, res, next) => {
     req.body.fName +
     "', l_name ='" +
     req.body.lName +
-    "', title ='" +
-    req.body.title +
-    "', email ='" +
-    req.body.email +
-    "', phone_num ='" +
-    req.body.pNum +
+    "', hotel_name ='" +
+    req.body.hotelName +
+    "',total_guests ='" +
+    req.body.tGuests +
+    "', excursion_date ='" +
+    req.body.eDate +
+    "', date_booked ='" +
+    req.body.dateBooked +
+    "', program_id ='" +
+    req.body.programID +
+    "', payment_method_id ='" +
+    req.body.pmID +
+    "', booked_through ='" +
+    req.body.bookedThrough +
     "'WHERE id =" +
     req.body.id;
+
+
+   
 
   if (req.session.isLoggedIn == true) {
   conn.query(sql, (err, rows) => {
