@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= page_title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- component -->
+    <style>
+      /* Custom style */
+      .header-right {
+        width: calc(100% - 3.5rem);
+      }
+      .sidebar:hover {
+        width: 16rem;
+      }
+      @media only screen and (min-width: 768px) {
+        .header-right {
+          width: calc(100% - 16rem);
+        }
+      }
+    </style>
+    <div x-data="setup()">
+      <div
+        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white text-black"
+      >
+        <!-- Header -->
+        <%- include('../partials/navbar'); %>
+        <!-- ./Header -->
+
+        <!-- Sidebar -->
+        <%- include('../partials/sidebar'); %>
+        <!-- ./Sidebar -->
+
+        <div class="h-full px-12 py-6 mt-14 mb-10 md:ml-64">
+          <!-- Add Booking Form -->
+
+          <section
+            class="w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md"
+          >
+            <form action="/bookings/update" method="POST" class="mt-6">
+              <div class="items-center -mx-2 md:flex">
+                <div class="w-full mx-2">
+                  <label class="block mb-2 text-sm font-medium text-gray-600"
+                    >First Name</label
+
+                  >
+
+                  <input
+                  value="<%= data.f_name %>"
+                    name="fName"
+                    class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    type="text"
+                  />
+                </div>
+
+                <div class="w-full mx-2 mt-4 md:mt-0">
+                  <label class="block mb-2 text-sm font-medium text-gray-600"
+                    >Last Name</label
+                  >
+
+                  <input
+                  value="<%= data.l_name %>"
+                    name="lName"
+                    class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <div class="items-center -mx-2 md:flex mt-4">
+                <div class="w-full mx-2">
+                  <label class="block mb-2 text-sm font-medium text-gray-600"
+                    >Program</label
+                  >
+
+                  <select
+                    name="programID"
+                    id=""
+                    class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  >
+                  <option value="" selected disabled>Please Select</option>
+                    <option value="1">Dolphin Swim Adventure</option>
+                    <option value="2">Shark Encounter</option>
+                    <option value="3">Encounter</option>
+                    <option value="4">Admission Plus</option>
+                    <option value="5">Dolphin Royal Swim</option>
+                    <option value="6">
+                      Yaaman Adventure + Swim With Dolphins
+                    </option>
+                  </select>
+                </div>
+
+                <div class="w-full mx-2 mt-4 md:mt-0">
+                  <label class="block mb-2 text-sm font-medium text-gray-600"
+                    >Excursion Date</label
+                  >
+
+                  <input
+                  value="<%= data.excursion_date %>"
+                    name="eDate"
+                    class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    type="date"
+                  />
+                </div>
+              </div>
+
+              <div class="items-center -mx-2 md:flex mt-4">
+                <div class="w-full mx-2">
+                  <label class="block mb-2 text-sm font-medium text-gray-600"
+                    >Total Guests</label
+                  >
+
+                  <input
+                  value="<%= data.total_guests %>"
+                    name="tGuests"
+                    class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    type="number"
+                  />
+                </div>
+
+                <div class="w-full mx-2 mt-4 md:mt-0">
+                  <label class="block mb-2 text-sm font-medium text-gray-600"
+                    >Hotel</label
+                  >
+
+                  <input
+                  value="<%= data.hotel_name %>"
+                    name="hotelName"
+                    class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <div class="items-center -mx-2 md:flex mt-4">
+                <div class="w-full mx-2">
+                  <label class="block mb-2 text-sm font-medium text-gray-600"
+                    >Payment Method</label
+                  >
+                  <select
+                    name="pmID"
+                    id=""
+                    class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  >
+                  <option value="" selected disabled>Please Select</option>
+                    <option value="1">Cash</option>
+                    <option value="2">Cheque</option>
+                    <option value="3">Debit Card</option>
+                    <option value="4">Credit Card</option>
+                    <option value="5">Credit</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="w-full mt-4">
+                <label
+                  class="block mb-2 text-sm font-medium text-gray-600"
+                ></label>
+
+                <input name="dateBooked" value="<%= new
+                Date().toLocaleDateString("fr-CA") %>" class="block w-full px-4
+                py-2 text-gray-700 bg-white border rounded-md
+                focus:border-blue-400 focus:ring-blue-300 focus:outline-none
+                focus:ring focus:ring-opacity-40" type="hidden">
+              </div>
+
+              <div class="w-full mt-4">
+                <label
+                  class="block mb-2 text-sm font-medium text-gray-600"
+                ></label>
+
+                <input
+                  name="bookedThrough"
+                  value="7"
+                  class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  type="hidden"
+                />
+              </div>
+
+              <div class="flex justify-center mt-6">
+                <button
+                  class="px-4 py-2 text-white transition-colors duration-200 transform bg-[#39a4ac] rounded-md hover:bg-[#008B8B] focus:outline-none focus:bg-gray-600"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <!-- ./Add Booking Form -->
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"
+      defer
+    ></script>
+  </body>
+</html>
